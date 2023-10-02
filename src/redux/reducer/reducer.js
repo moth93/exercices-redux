@@ -10,7 +10,7 @@ const reducer=(state = initialState, { type, payload }) => {
 
   case ADD:
     console.log(payload);
-    return { car: state.car[2]=payload }
+    return {...state, car: [...state.car,payload] }
     case DELETE:
     return { ...state, car: state.car.filter(elt=>elt.id!=payload) }
   default:

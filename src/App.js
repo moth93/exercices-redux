@@ -12,7 +12,7 @@ function App() {
   const [price,setprice]=useState("")
   var data={model:model,price:price,id:3}
   console.log(data)
-  const addcar=(data)=>{
+  const addcar=()=>{
    
     dispatch(add(data))
   }
@@ -21,15 +21,15 @@ function App() {
     <div className="App">
       <input type='text' placeholder='car model' onChange={(e)=>setModel(e.target.value)} /> 
       <input type='text' placeholder='car price'onChange={(e)=>setprice(e.target.value)}/>
-       <button onClick={addcar(} >add</button>
-    {cars?.map(elt=>{
+       <button onClick={addcar} >add</button>
+    {cars.map(elt=>
       <div> 
         <h1>
           {elt.model}
         </h1>
         <p>{elt.price}</p>
         <button onClick={()=>dispatch(del(elt.id))}>delete</button>
-         </div>}
+         </div>
       )}
 
     </div>
